@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="traveling.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Include Required Prerequisites -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css"/>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"/>
+
+    <script type="text/javascript" src="traveling.js"></script>
+
+</head>
+<body>
+<header class="backGround ">
+    <!--      phrase   -->
+    <h2 class="phrase ">outdoors is where life happens</h2>
+    <!--       /phrase -->
+
+    <!--      navbar   -->
+    <nav class="navbar navbar-expand-sm navbar-fixed-top myNavbar mt-5">
+        <div class="container-fluid ">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Outdoors</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Attraction</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!--                signup -->
+                <li><a data-toggle="modal" data-target="#exampleModal" href="#"> <span
+                        class=" glyphicon glyphicon-user "> </span>Sign Up</a></li>
+                <!--                sign in-->
+                <li><a data-toggle="modal" data-target="#exampleModalCenter" href="#"><span
+                        class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--      /navbar   -->
+
+    <!--      searchbar   -->
+    <nav class="navbar navbar-expand-sm  searchBar">
+        <div>
+            <form class="navbar-form row clear" action="#">
+                <div class="col-sm-4 align" style="margin-right: 15px">
+                    <input type="text" class="form-control input-style" placeholder="Search" name="search">
+                </div>
+                <!--      date picker   -->
+
+                <div class="input-group-date input-group col-sm-4" style="margin-right: 0px">
+                    <input type="text" class="pointer-cursor-date" name="daterange" value="01/01/2015 - 01/31/2015"/>
+
+                    <script type="text/javascript">
+                        $(function () {
+                            $('input[name="daterange"]').daterangepicker();
+                        });
+                    </script>
+
+                </div>
+                <div class="col-sm-4 pull-right input-group" style="width: 8% !important;">
+                    <button class="btn btn-primary pull-right " type="submit"> search</button>
+                </div>
+                <!--               number of travellers-->
+                <div style="display: inline-block; height: 34px; width: 415px">
+                    <div class="number">
+                        <span>number of adults:</span>
+                        <span class="minus">-</span>
+                        <input type="text" value="1" style="width: 20px; border:1px solid #1e47f3;"/>
+                        <span class="plus">+</span>
+                    </div>
+
+                    <span>  <div class="number">
+                        <span>number of children:</span>
+                        <span class="minus">-</span>
+                        <input type="text" value="1" style="width: 20px; border:1px solid #1e47f3;"/>
+                        <span class="plus">+</span>
+                    </div>
+                    </span>
+
+                </div>
+
+
+            </form>
+        </div>
+    </nav>
+    <!--      searchbar   -->
+    <!--      sign in   -->
+    <div class="modal fade sign-in" id="exampleModalCenter" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title " style="display: inline-block" id="exampleModalLongTitle">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="shape">
+                        <div class="form-outline mb-4 control-container">
+                            <label class="form-label " for="form2Example1">Email address</label>
+                            <input type="email" id="form2Example1" class="form-control"/>
+                        </div>
+                        <!-- Password input -->
+                        <div class="form-outline mb-4 control-container">
+                            <label class="form-label" for="form2Example2">Password</label>
+                            <input type="password" id="form2Example2" class="form-control"/>
+                        </div>
+
+                        <!-- 2 column grid layout for inline styling -->
+                        <div class="row mb-4 control-container">
+                            <div class="col d-flex justify-content-center">
+                                <!-- Checkbox -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="form2Example31"
+                                           checked/>
+                                    <label class="form-check-label" for="form2Example31"> Remember me </label>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <!-- forgetting password -->
+                                <a href="#!">Forgot password?</a>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="button" class="btn btn-block mb-4 control-container main-color">Sign
+                            in
+                        </button>
+
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p>Not a member? <a class="btn" data-toggle="modal" data-target="#exampleModal"
+                                                class="close" data-dismiss="modal" aria-label="Close"
+                                                href="#">Register</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--      /sign in   -->
+
+    <!--      register   -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 style="display: inline-block">Sign Up</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="signup-form sign-up-design">
+                        <p>Please fill in this form to create an account!</p>
+                        <form action="/examples/actions/confirmation.php" method="post">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="first_name"
+                                                                 placeholder="First Name" required="required"></div>
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="last_name"
+                                                                 placeholder="Last Name" required="required"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" placeholder="Email"
+                                       required="required">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="Password"
+                                       required="required">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="confirm_password"
+                                       placeholder="Confirm Password" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the
+                                    <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+                            </div>
+                        </form>
+                        <div class="hint-text">Already have an account? <a class="btn " data-toggle="modal"
+                                                                           data-target="#exampleModalCenter"
+                                                                           class="close" data-dismiss="modal" href="#">Login
+                            here</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--      /register  -->
+
+</header>
+
+<div style="height: 100%; position: absolute; width: 100%; top: 51%;">
+    <dev class="Add " id="add-1" >
+
+    </dev>
+    <dev class="Add" id="add-2">
+
+    </dev>
+    <dev class="Add " id="add-3">
+
+    </dev>
+</div>
+
+</body>
+<footer class="footer">
+    <div class="footers-head">
+        <p style="margin-left: 10px">terms and condition</p>
+    </div>
+</footer>
+</html>
+
