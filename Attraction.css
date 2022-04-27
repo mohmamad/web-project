@@ -1,0 +1,71 @@
+.bodyattrac{
+    font-family: 'Rajdhani', sans-serif;
+}
+.myNavbar {
+    background-color: #0059ff;
+    opacity: 0.8;
+}
+
+.myNavbar .navbar-brand,
+.myNavbar .navbar-text {
+    color: rgb(255, 255, 255);
+}
+
+/* change the link color */
+nav .navbar-nav li a {
+    color: white;
+}
+
+/* change the color of active or hovered links */
+nav .navbar-nav li a:hover {
+    color: #1e47f3;
+}
+
+nav .navbar-nav li a:active {
+    color: #1e47f3;
+}
+.main-title::after{
+    content: '';
+    width: 120px;
+    height: 2px;
+    position: absolute;
+    transform: translateX(-50%);
+}
+/*top Destination*/
+.Destenation{
+     /*padding: 5px;*/
+    overflow:  hidden;
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+.Destenation .box{
+    padding : 5px;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Itim', cursive;
+    font-weight: bold;
+    font-size: 29px;
+}
+.Destenation .box::before{
+    content: attr(data-work);
+    position: absolute;
+    background-color:	#F08080C2 ;
+    width : calc(100% - 5px);
+    height: 100% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    transition: 0.5s ;
+    font-size: 1.5rem;
+    transform: translateX(calc(-100% - 10px));
+
+}
+.Destenation .box:hover::before{
+    transform: translateX(0);
+
+}
+/*top destenatin*/
