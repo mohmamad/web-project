@@ -66,7 +66,7 @@ nav .navbar-nav li a:active {
 /* searchbar */
 .searchBar {
     background-color: #ffffff;
-    width: 70%;
+    width: 50%;
     margin: auto;
     top: 65%;
     z-index: 1;
@@ -80,6 +80,7 @@ nav .navbar-nav li a:active {
     border: 1px  solid #1e47f3 !important;
     height: 34px;
     width: 180px;
+    margin-left: 10px;
 }
 .pointer-cursor-date:hover{
     cursor: pointer;
@@ -137,56 +138,61 @@ span {cursor:pointer; }
 
 /* sign in */
 
-/* sign in */
+/* signup */
 
 .sign-up-design{
     width: 70%;
     margin: auto;
 }
 
-/* sign in */
+/* signup */
 
 /* adds */
 
-.Add {
+.Destenation{
+    /*padding: 5px;*/
+    overflow:  hidden;
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+.Destenation .box{
+    padding : 5px;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Itim', cursive;
+    font-weight: bold;
+    font-size: 29px;
+}
+.Destenation .box::before{
+    content: attr(data-work);
     position: absolute;
-    height: 60%;
-    width: 31%;
-    border: 2px solid black;
-    background-image: url('1432168.jpg');
-    z-index: 0;
-    margin-right: 2px;
+    background-color:	#F08080C2 ;
+    width : calc(100% - 5px);
+    height: 100% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    transition: 0.5s ;
+    font-size: 1.5rem;
+    transform: translateX(calc(-100% - 10px));
+
 }
-#add-1{
-    left: 2.5%;
+.Destenation .box:hover::before{
+    transform: translateX(0);
 }
 
-#add-2{
-    left: 34.5%;
-}
-
-#add-3{
-    left: 66.5%;
+.pointer-cursor-adds:hover{
+     cursor: pointer;
 }
 
 /* adds */
 
 /* footer */
 
-.footer{
-    position: absolute;
-    background-color: white;
-    height: 20%;
-    width: 100%;
-    margin-top: 80%;
 
-}
-.footers-head{
-    height: 30px;
-    width: 100%;
-    background-color: #1e47f3;
-    color: white;
-
-}
 
 /* footer */

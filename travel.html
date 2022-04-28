@@ -18,6 +18,8 @@
 
     <script type="text/javascript" src="traveling.js"></script>
 
+    <title>Outdoors</title>
+
 </head>
 <body>
 <header class="backGround ">
@@ -32,8 +34,8 @@
                 <a class="navbar-brand" href="#">Outdoors</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Attraction</a></li>
+                <li class="active"><a href="http://localhost:63342/webProject/travel.html?_ijt=nfl8040gbfj027ian69dghumid&_ij_reload=RELOAD_ON_SAVE#">Home</a></li>
+                <li><a href="http://localhost:63342/webProject/Attraction.html?_ijt=cih8aga574s0ri0abhjqnerdt4&_ij_reload=RELOAD_ON_SAVE">Attraction</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <!--                signup -->
@@ -51,12 +53,12 @@
     <nav class="navbar navbar-expand-sm  searchBar">
         <div>
             <form class="navbar-form row clear" action="#">
-                <div class="col-sm-4 align" style="margin-right: 15px">
+                <div class="col-sm-5 align" style="margin-right: 15px">
                     <input type="text" class="form-control input-style" placeholder="Search" name="search">
                 </div>
                 <!--      date picker   -->
 
-                <div class="input-group-date input-group col-sm-4" style="margin-right: 0px">
+                <div class="input-group-date input-group col-sm-4" style="margin-left: 10px">
                     <input type="text" class="pointer-cursor-date" name="daterange" value="01/01/2015 - 01/31/2015"/>
 
                     <script type="text/javascript">
@@ -70,7 +72,7 @@
                     <button class="btn btn-primary pull-right " type="submit"> search</button>
                 </div>
                 <!--               number of travellers-->
-                <div style="display: inline-block; height: 34px; width: 415px">
+                <div style="display: inline-block; height: 34px; width: 180px; margin-left: 10px">
                     <div class="number">
                         <span>number of adults:</span>
                         <span class="minus">-</span>
@@ -78,21 +80,13 @@
                         <span class="plus">+</span>
                     </div>
 
-                    <span>  <div class="number">
-                        <span>number of children:</span>
-                        <span class="minus">-</span>
-                        <input type="text" value="1" style="width: 20px; border:1px solid #1e47f3;"/>
-                        <span class="plus">+</span>
-                    </div>
-                    </span>
-
                 </div>
 
 
             </form>
         </div>
     </nav>
-    <!--      searchbar   -->
+    <!--     / searchbar   -->
     <!--      sign in   -->
     <div class="modal fade sign-in" id="exampleModalCenter" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -207,23 +201,46 @@
 
 </header>
 
-<div style="height: 100%; position: absolute; width: 100%; top: 51%;">
-    <dev class="Add " id="add-1" >
-
-    </dev>
-    <dev class="Add" id="add-2">
-
-    </dev>
-    <dev class="Add " id="add-3">
-
-    </dev>
+<div style="position: absolute; top: 51%; width: 100%;">
+    <h1 style="text-align: center; width: 100%;">Explore the world with us!</h1>
 </div>
 
-</body>
-<footer class="footer">
-    <div class="footers-head">
-        <p style="margin-left: 10px">terms and condition</p>
+<!--adds -->
+
+<div class="Destenation text-center" style="position: absolute; top: 62%">
+
+    <div class="row">
+        <div class="col-sm-6 col-md-3 col-lg-4 pointer-cursor-adds">
+            <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="London">
+                <img src="pics/attraction/londn.jpeg" alt="" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-4 pointer-cursor-adds">
+            <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Maldives">
+                <img src="pics/attraction/maldives.jpg" alt="" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-4 pointer-cursor-adds">
+            <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Berlin">
+                <img src="pics/attraction/berlin.jpg" alt="" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-6 pointer-cursor-adds">
+            <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Humburg">
+                <img src="pics/attraction/humburg.jpg" alt="" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-6 pointer-cursor-adds">
+            <div class="box bg-white "  style="margin: 5px;padding-bottom: 0px;" data-work="Istanbul">
+                <img src="pics/attraction/istanbul.jpg" alt="" class="img-fluid ">
+            </div>
+        </div>
+
+
     </div>
-</footer>
+</div>
+<!--/adds -->
+</body>
+
 </html>
 
