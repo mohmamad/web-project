@@ -1,6 +1,7 @@
 .bodyattrac{
     font-family: 'Rajdhani', sans-serif;
 }
+/*navbar*/
 .myNavbar {
     background-color: #0059ff;
     opacity: 0.8;
@@ -31,6 +32,34 @@ nav .navbar-nav li a:active {
     position: absolute;
     transform: translateX(-50%);
 }
+/*navbar*/
+
+/* sign in */
+.sign-in{
+    width: 50%;
+    height: 100%;
+    margin: auto;
+}
+.shape{
+    width: 80%;
+    margin: auto;
+
+}
+.control-container{
+    margin-bottom: 10px !important;
+}
+
+/* sign in */
+
+/* signup */
+
+.sign-up-design{
+    width: 70%;
+    margin: auto;
+}
+
+/* signup */
+
 /*top Destination*/
 .Destenation{
      /*padding: 5px;*/
