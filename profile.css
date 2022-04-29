@@ -1,7 +1,178 @@
-.backGround{
-    background-image: url('pics/icons/london.jpg');
-    background-size: contain;
-    height: 1000px;
-    width: 1000px;
 
+/*start navbar*/
+.myNavbar {
+    background-color: #0059ff;
+    opacity: 0.8;
+}
+
+.myNavbar .navbar-brand,
+.myNavbar .navbar-text {
+    color: rgb(255, 255, 255);
+}
+
+/* change the link color */
+nav .navbar-nav li a {
+    color: white;
+}
+
+/* change the color of active or hovered links */
+nav .navbar-nav li a:hover {
+    color: #1e47f3;
+}
+
+/*end navbar*/
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px;
+    color :#2e2e1fb8;
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+.bigestrow{
+    background-color: aliceblue;
+    position: center;
+    margin-top: 15%;
+    border-radius: 5px;
+    /*width: 70%;*/
+    /*height: 80%;*/
+}
+/*payment method*/
+/*@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");*/
+
+font{
+    font-family: "Poppins", sans-serif;
+    font-weight: 300
+}
+
+.container {
+    height: 100vh
+}
+
+.card {
+    border: none
+}
+
+.card-header {
+    padding: .5rem 1rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, .03);
+    border-bottom: none
+}
+
+.btn-light:focus {
+    color: #212529;
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+    box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, .5)
+}
+
+.form-control {
+    height: 50px;
+    border: 0.4px solid #b9b9b9;;
+    border-radius: 6px;
+    font-size: 14px
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #039be5;
+    outline: 0;
+    box-shadow: none
+}
+
+.input {
+    position: relative
+}
+
+.input i {
+    position: absolute;
+    top: 16px;
+    left: 11px;
+    color: #989898
+}
+
+.input input {
+    text-indent: 25px
+}
+
+.card-text {
+    font-size: 13px;
+    margin-left: 6px
+}
+
+.certificate-text {
+    font-size: 12px
+}
+
+.billing {
+    font-size: 11px
+}
+
+.super-price {
+    top: 0px;
+    font-size: 22px
+}
+
+.super-month {
+    font-size: 11px
+}
+
+.line {
+    color: #bfbdbd
+}
+
+.free-button {
+    background: #1565c0;
+    height: 52px;
+    font-size: 15px;
+    border-radius: 8px
+}
+
+.payment-card-body {
+    flex: 1 1 auto;
+    padding: 24px 1rem !important
+}
+/*payment method*/
+body{
+    background-color: #f1fbf;
+}
+.fontlight{
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    color: #2e2e1f !important;
 }
