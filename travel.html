@@ -212,26 +212,31 @@
     <div class="row">
         <div class="col-sm-6 col-md-3 col-lg-4 pointer-cursor-adds">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="London">
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#conform-flight" href="#"></a>
                 <img src="pics/attraction/londn.jpeg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-3 col-lg-4 pointer-cursor-adds">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Maldives">
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#conform-flight" href="#"></a>
                 <img src="pics/attraction/maldives.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-3 col-lg-4 pointer-cursor-adds">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Berlin">
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#conform-flight" href="#"></a>
                 <img src="pics/attraction/berlin.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-3 col-lg-6 pointer-cursor-adds">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Humburg">
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#conform-flight" href="#"></a>
                 <img src="pics/attraction/humburg.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-3 col-lg-6 pointer-cursor-adds">
             <div class="box bg-white "  style="margin: 5px;padding-bottom: 0px;" data-work="Istanbul">
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#conform-flight" href="#"></a>
                 <img src="pics/attraction/istanbul.jpg" alt="" class="img-fluid ">
             </div>
         </div>
@@ -240,6 +245,56 @@
     </div>
 </div>
 <!--/adds -->
+
+<!--book flights-->
+
+<div class="modal fade" id="conform-flight" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div style="text-align: center; padding-bottom: 2px !important; " class="modal-header">
+                <h2 style="display: inline-block; margin-top: 10px !important;">Add new trip</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center" class=" popup-design">
+                    <p>Please fill in all the data required to add a new trip</p>
+                    <form action="/examples/actions/confirmation.php" method="post">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-6"><input type="text" class="form-control" name="From"
+                                                             placeholder="From" required="required"></div>
+                                <div class="col-xs-6"><input type="text" class="form-control" name="Destination"
+                                                             placeholder="Destination" required="required"></div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:10px " class="row">
+                            <div > <p style="display: inline-block; text-align: initial; width: 200px;">Flight Date</p>
+                                <p style="display: inline-block; margin-left: 20px">Flight Time</p>
+                            </div>
+                            <div class="col-xs-6"><input type="date" class="form-control" name="start-date"
+                                                         required="required"></div>
+                            <div class="col-xs-6"><input type="time" class="form-control" name="end-date"
+                                                         required="required"></div>
+                        </div>
+                        <div style="text-align: center">
+                            <p>Trip description</p>
+                            <textarea style="width: 100%; height: 150px"></textarea>
+                        </div>
+                        <div style="text-align: center" class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg">Add Trip</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/book flights-->
+
 </body>
 
 </html>
