@@ -20,6 +20,9 @@
 
     <title>Outdoors</title>
 
+    <?php
+     include "controller.php";
+     ?>
 </head>
 <body>
 <header class="backGround ">
@@ -159,12 +162,12 @@
                 <div class="modal-body">
                     <div class="signup-form sign-up-design">
                         <p>Please fill in this form to create an account!</p>
-                        <form action="/examples/actions/confirmation.php" method="post">
+                        <form  method="POST" action="controller.php?action=newUser">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-xs-6"><input type="text" class="form-control" name="first_name"
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="firstname"
                                                                  placeholder="First Name" required="required"></div>
-                                    <div class="col-xs-6"><input type="text" class="form-control" name="last_name"
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="lastname"
                                                                  placeholder="Last Name" required="required"></div>
                                 </div>
                             </div>
@@ -177,7 +180,7 @@
                                        required="required">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="confirm_password"
+                                <input type="password" class="form-control" name="repassword"
                                        placeholder="Confirm Password" required="required">
                             </div>
                             <div class="form-group">
@@ -200,7 +203,34 @@
     <!--      /register  -->
 
 </header>
-
+<div class="error-handling" style="position: absolute;top:10%;width: 100%">
+    <?php
+    if(isset($_GET['error']))
+    {
+        ?>
+        <div class="alert alert-danger">
+            <strong>Danger!</strong> <?php echo $_GET['error'];?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <?php
+    }
+    ?>
+    <?php
+    if(isset($_GET['success']))
+    {
+        ?>
+        <div class="alert alert-success">
+            <strong>Success!</strong> <?php echo $_GET['success'];?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <?php
+    }
+    ?>
+</div>
 <div style="position: absolute; top: 51%; width: 100%;">
     <h1 style="text-align: center; width: 100%;">Explore the world with us!</h1>
 </div>
