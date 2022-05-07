@@ -7,7 +7,9 @@ function create_new_user(){
     $lastname="";
     $password="";
     $repassword="";
+
     $phonenumber  = "";
+=======
     if(isset($_POST["email"])){
         $email=$_POST["email"];
     }
@@ -23,9 +25,11 @@ function create_new_user(){
     if(isset($_POST["repassword"])){
         $repassword=$_POST["repassword"];
     }
+
     if(isset($_POST["phonenumber"])){
         $birthdate=$_POST["phonenumber"];
     }
+
 
     /* if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
          redirect('register.php?error=invalid email');
@@ -45,6 +49,7 @@ function create_new_user(){
         $user_obj["lastname"]=$lastname;
         $user_obj["password"]=$password;
         $user_obj["repassword"]=$repassword;
+
         $user_obj["phonenumber"]=$phonenumber;
 
         $result=add_new_user($user_obj);

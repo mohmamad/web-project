@@ -1,4 +1,5 @@
 <?php
+
 if(!isset($_SESSION))
 {
     session_start();
@@ -43,6 +44,7 @@ function check_user_login(){
         return false;
     }
 }
+
 
 
 

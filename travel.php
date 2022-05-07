@@ -21,9 +21,14 @@
     <title>Outdoors</title>
 
     <?php
+
     include "controller.php";
 
     ?>
+=======
+     include "controller.php";
+     ?>
+
 </head>
 <body>
 <header class="backGround ">
@@ -38,20 +43,32 @@
                 <a class="navbar-brand" href="#">Outdoors</a>
             </div>
             <ul class="nav navbar-nav">
+
                 <li class="active"><a
                             href="http://localhost:63342/webProject/travel.html?_ijt=nfl8040gbfj027ian69dghumid&_ij_reload=RELOAD_ON_SAVE#">Home</a>
                 </li>
                 <li>
                     <a href="http://localhost:63342/webProject/Attraction.html?_ijt=cih8aga574s0ri0abhjqnerdt4&_ij_reload=RELOAD_ON_SAVE">Attraction</a>
                 </li>
+=======
+                <li class="active"><a href="http://localhost:63342/webProject/travel.html?_ijt=nfl8040gbfj027ian69dghumid&_ij_reload=RELOAD_ON_SAVE#">Home</a></li>
+                <li><a href="http://localhost:63342/webProject/Attraction.html?_ijt=cih8aga574s0ri0abhjqnerdt4&_ij_reload=RELOAD_ON_SAVE">Attraction</a></li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <!--                signup -->
                 <li><a data-toggle="modal" data-target="#exampleModal" href="#"> <span
+
                                 class=" glyphicon glyphicon-user "> </span>Sign Up</a></li>
                 <!--                sign in-->
                 <li><a data-toggle="modal" data-target="#exampleModalCenter" href="#"><span
                                 class="glyphicon glyphicon-log-in"></span> Login</a></li>
+=======
+                        class=" glyphicon glyphicon-user "> </span>Sign Up</a></li>
+                <!--                sign in-->
+                <li><a data-toggle="modal" data-target="#exampleModalCenter" href="#"><span
+                        class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
             </ul>
         </div>
     </nav>
@@ -108,6 +125,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="shape">
+
                         <form method="POST" action="controller.php?action=sign-in">
 <!--                            email input-->
                             <div class="form-outline mb-4 control-container">
@@ -148,6 +166,40 @@
                                 in
                             </button>
                         </form>
+
+                        <div class="form-outline mb-4 control-container">
+                            <label class="form-label " for="form2Example1">Email address</label>
+                            <input type="email" id="form2Example1" class="form-control"/>
+                        </div>
+                        <!-- Password input -->
+                        <div class="form-outline mb-4 control-container">
+                            <label class="form-label" for="form2Example2">Password</label>
+                            <input type="password" id="form2Example2" class="form-control"/>
+                        </div>
+
+                        <!-- 2 column grid layout for inline styling -->
+                        <div class="row mb-4 control-container">
+                            <div class="col d-flex justify-content-center">
+                                <!-- Checkbox -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="form2Example31"
+                                           checked/>
+                                    <label class="form-check-label" for="form2Example31"> Remember me </label>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <!-- forgetting password -->
+                                <a href="#!">Forgot password?</a>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="button" class="btn btn-block mb-4 control-container main-color">Sign
+                            in
+                        </button>
+
+
                         <!-- Register buttons -->
                         <div class="text-center">
                             <p>Not a member? <a class="btn" data-toggle="modal" data-target="#exampleModal"
@@ -159,6 +211,7 @@
             </div>
         </div>
     </div>
+
 
     <!--      /sign in   -->
 
@@ -176,7 +229,11 @@
                 <div class="modal-body">
                     <div class="signup-form sign-up-design">
                         <p>Please fill in this form to create an account!</p>
+
                         <form method="POST" action="controller.php?action=newUser">
+
+                        <form  method="POST" action="controller.php?action=newUser">
+
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-xs-6"><input type="text" class="form-control" name="firstname"
@@ -198,10 +255,12 @@
                                        placeholder="Confirm Password" required="required">
                             </div>
                             <div class="form-group">
+
                                 <input type="text" class="form-control" name="phonenumber"
                                        placeholder="phone number" required="required">
                             </div>
                             <div class="form-group">
+
                                 <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the
                                     <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
                             </div>
@@ -211,8 +270,10 @@
                         </form>
                         <div class="hint-text">Already have an account? <a class="btn " data-toggle="modal"
                                                                            data-target="#exampleModalCenter"
-                                                                           class="close" data-dismiss="modal" href="#">Login
-                                here</a></div>
+                                                                           class="close" data-dismiss="modal" href="#">Login  here</a></div>
+
+                           </div>
+
                     </div>
                 </div>
             </div>
@@ -223,10 +284,18 @@
 </header>
 <div class="error-handling" style="position: absolute;top:10%;width: 100%">
     <?php
+
     if (isset($_GET['error'])) {
         ?>
         <div class="alert alert-danger">
             <strong>Danger!</strong> <?php echo $_GET['error']; ?>
+=======
+    if(isset($_GET['error']))
+    {
+        ?>
+        <div class="alert alert-danger">
+            <strong>Danger!</strong> <?php echo $_GET['error'];?>
+
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -235,10 +304,18 @@
     }
     ?>
     <?php
+
     if (isset($_GET['success'])) {
         ?>
         <div class="alert alert-success">
             <strong>Success!</strong> <?php echo $_GET['success']; ?>
+
+    if(isset($_GET['success']))
+    {
+        ?>
+        <div class="alert alert-success">
+            <strong>Success!</strong> <?php echo $_GET['success'];?>
+
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -257,37 +334,62 @@
 
     <div class="row">
         <div class="col-sm-6 col-md-3 col-lg-4 pointer-cursor-adds">
+
             <div class="box bg-white" style="margin: 5px;padding-bottom: 0px;" data-work="London">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal"
                    data-target="#conform-flight" href="#"></a>
+
+            <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="London">
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#conform-flight" href="#"></a>
+
                 <img src="pics/attraction/londn.jpeg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-3 col-lg-4 pointer-cursor-adds">
+
             <div class="box bg-white" style="margin: 5px;padding-bottom: 0px;" data-work="Maldives">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal"
                    data-target="#conform-flight" href="#"></a>
+
+            <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Maldives">
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#conform-flight" href="#"></a>
+
                 <img src="pics/attraction/maldives.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-3 col-lg-4 pointer-cursor-adds">
+
             <div class="box bg-white" style="margin: 5px;padding-bottom: 0px;" data-work="Berlin">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal"
                    data-target="#conform-flight" href="#"></a>
+
+            <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Berlin">
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#conform-flight" href="#"></a>
+
                 <img src="pics/attraction/berlin.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-3 col-lg-6 pointer-cursor-adds">
+
             <div class="box bg-white" style="margin: 5px;padding-bottom: 0px;" data-work="Humburg">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal"
                    data-target="#conform-flight" href="#"></a>
+
+            <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Humburg">
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#conform-flight" href="#"></a>
+
                 <img src="pics/attraction/humburg.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-3 col-lg-6 pointer-cursor-adds">
+
             <div class="box bg-white " style="margin: 5px;padding-bottom: 0px;" data-work="Istanbul">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal"
                    data-target="#conform-flight" href="#"></a>
+
+            <div class="box bg-white "  style="margin: 5px;padding-bottom: 0px;" data-work="Istanbul">
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#conform-flight" href="#"></a>
+
                 <img src="pics/attraction/istanbul.jpg" alt="" class="img-fluid ">
             </div>
         </div>
@@ -304,13 +406,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div style="text-align: center; padding-bottom: 2px !important; " class="modal-header">
+
                 <h2 style="display: inline-block; margin-top: 10px !important;">book flight</h2>
+
+                <h2 style="display: inline-block; margin-top: 10px !important;">Add new trip</h2>
+
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div style="text-align: center" class=" popup-design">
+
                     <p>Please fill in all the data required to book a new flight</p>
                     <form action="/examples/actions/confirmation.php" method="post">
                         <div class="form-group ">
@@ -325,6 +432,33 @@
 
                         <div style="text-align: center" class="form-group">
                             <button type="submit" class="btn btn-primary btn-lg">book flight</button>
+
+                    <p>Please fill in all the data required to add a new trip</p>
+                    <form action="/examples/actions/confirmation.php" method="post">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-6"><input type="text" class="form-control" name="From"
+                                                             placeholder="From" required="required"></div>
+                                <div class="col-xs-6"><input type="text" class="form-control" name="Destination"
+                                                             placeholder="Destination" required="required"></div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:10px " class="row">
+                            <div > <p style="display: inline-block; text-align: initial; width: 200px;">Flight Date</p>
+                                <p style="display: inline-block; margin-left: 20px">Flight Time</p>
+                            </div>
+                            <div class="col-xs-6"><input type="date" class="form-control" name="start-date"
+                                                         required="required"></div>
+                            <div class="col-xs-6"><input type="time" class="form-control" name="end-date"
+                                                         required="required"></div>
+                        </div>
+                        <div style="text-align: center">
+                            <p>Trip description</p>
+                            <textarea style="width: 100%; height: 150px"></textarea>
+                        </div>
+                        <div style="text-align: center" class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg">Add Trip</button>
+
                         </div>
                     </form>
 
