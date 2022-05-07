@@ -15,6 +15,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Outdoors</title>
+    <?php
+    include "controller.php";
+
+    ?>
 </head>
 
 <body style="margin-top: 60px;">
