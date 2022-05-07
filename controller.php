@@ -12,7 +12,7 @@ $savedEmail = "";
 
 $savedPassword = "";
 
-<?php;
+
 include 'functions/functions.php';
 include 'functions/create-user-functions.php';
 $action=isset($_GET['action'])?$_GET['action']:"";

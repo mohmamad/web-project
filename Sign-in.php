@@ -1,3 +1,31 @@
+<?php
+    session_start();
+    $_SESSION['ismember']=1;
+//    try{
+//        $db = new mysqli('localhost','root','','web-project');
+//        $qry= 'select * from user';
+//        $res=$db->query($qry);
+//        for($i=0;$i<$res->num_rows;$i++)
+//        {
+//            $row = $res->fetch_object();
+//            if()
+//        }
+//
+//    }catch (){
+//
+//    }
+    $_SESSION['fullName']='Laith Atari';
+    $_SESSION['email']='laithatari01@gmail.com';
+    $_SESSION['phonenumber']='0595208174';
+    $_SESSION['country']= 'Palestine';
+    $_SESSION['bio']='';
+    $_SESSION['firstName']= 'laith';
+    $_SESSION['lastName']='Atari';
+    header('Location:AttractionUser.php');
+
+    
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

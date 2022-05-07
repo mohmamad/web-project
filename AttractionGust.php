@@ -18,7 +18,7 @@
 
 <body style="margin-top: 60px;">
 <header>
-<!--    navbar-->
+    <!--    navbar-->
     <nav class="navbar navbar-expand-sm navbar-fixed-top myNavbar mt-5">
         <div class="container-fluid ">
             <div class="navbar-header">
@@ -31,10 +31,10 @@
             <ul class="nav navbar-nav navbar-right">
                 <!--                signup -->
                 <li><a data-toggle="modal" data-target="#exampleModal" href="#"> <span
-                        class=" glyphicon glyphicon-user "> </span>Sign Up</a></li>
+                            class=" glyphicon glyphicon-user "> </span>Sign Up</a></li>
                 <!--                sign in-->
                 <li><a data-toggle="modal" data-target="#exampleModalCenter" href="#"><span
-                        class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
     </nav>
@@ -144,7 +144,7 @@
                         <div class="hint-text">Already have an account? <a class="btn " data-toggle="modal"
                                                                            data-target="#exampleModalCenter"
                                                                            class="close" data-dismiss="modal" href="#">Login
-                            here</a></div>
+                                here</a></div>
                     </div>
                 </div>
             </div>

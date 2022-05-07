@@ -1,3 +1,18 @@
+<?php
+    session_start();
+    if(isset($_SESSION['ismember'])) {
+        if ($_SESSION['ismember']==1){
+            echo $_SESSION['fullName'].$_SESSION['email'].$_SESSION['phonenumber'];
+            ?>
+            <script type="text/javascript">
+                document.getElementById("txtphone").style=""
+
+
+            </script>
+        <?php
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +32,15 @@
     <link rel="stylesheet" href="profile.css">
     <title></title>
 </head>
+<script>
+    function editprofile(){
+        document.getElementById("txtphone").contentEditable=true;
+        document.getElementById("txtfirstname").contentEditable=true;
+        document.getElementById("txtlastname").contentEditable=true;
+        document.getElementById("txtcountry").contentEditable=true;
+        document.getElementById("txtbio").contentEditable=true;
+    }
+</script>
 <body style="background-color: #2825250a;">
 <!--start navbar-->
 <header>
@@ -56,13 +80,11 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-12"><label class="labels">Name</label><input type="text" class="form-control"  value=""></div>
-                    <div class="col-lg-12"><label class="labels">Last-Name</label><input type="text" class="form-control" value="" ></div>
-                    <div class="col-md-12"><label style="" class="labels">User-Name</label><input type="text" class="form-control" value=""></div>
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" value=""></div>
-                    <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control"  value=""></div>
-                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control"  value=""></div>
-                    <div class="col-md-12"><label class="labels">Country</label><input type="text" class="form-control" value=""></div>
+                    <div class="col-lg-12"><label class="labels">First Name</label><input id="txtfisrtname" contenteditable="false" type="text" class="form-control"  value=""></div>
+                    <div class="col-lg-12"><label class="labels">Last Name</label><input id="txtlastname" contenteditable="false"  type="text" class="form-control" value="" ></div>
+                    <div class="col-md-12"><label class="labels">Mobile Number</label><input id="txtphone" contenteditable="false"  type="text" class="form-control" value=""></div>
+                    <div class="col-md-12"><label class="labels">Email ID</label><input id="txtemail" contenteditable="false"  type="text"  class="form-control"  value=""></div>
+                    <div class="col-md-12"><label class="labels">Country</label><input id="txtcountry" contenteditable="false"  type="text" class="form-control" value=""></div>
                     <div class="col-md-12 text-center"><button class="btn-primary profile-button"style="margin-bottom: 10px;margin-top: 10px;width: 100%;height: 49px;border-radius: 5px;background: rgb(21 189 177 / 77%);" type="button">Edit Profile</button></div>
                     <div class="text-center"><button class="col-lg-12 btn btn-primary profile-button"style="margin-bottom: 10px;margin-top: 10px;display: none " type="button">Save Profile</button></div>
 
@@ -72,7 +94,7 @@
         </div>
         <div class="col-md-4"style="margin-top: 23px;">
             <div class>
-                <div class="col-md-12"style="padding-left: 1px;"><label class="labels"style="margin-top: 43px;">Bio</label><input type="text"style="height: 153px;" class="form-control"  value=""></div> <br>
+                <div class="col-md-12"style="padding-left: 1px;"><label class="labels"style="margin-top: 43px;">Bio</label><input id ="txtbio"type="text"style="height: 153px;" class="form-control"  value=""></div> <br>
                 <div class="col-md-12 labels" style="padding-left: 1px;"> <span style="display: block;padding-top: 8px;padding-bottom: 8px;">Payment Method</span>
                             <div class="card">
                                 <div class="accordion" id="accordionExample">
