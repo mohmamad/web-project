@@ -154,7 +154,7 @@
             <div class="modal-body">
                 <div style="text-align: center" class=" popup-design">
                     <p>Please fill in all the data required to add a new trip</p>
-                    <form action="/examples/actions/confirmation.php" method="post">
+                    <form method="POST" action="controller.php?action=add-flight">
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-xs-6"><input type="text" class="form-control" name="From"
@@ -174,7 +174,8 @@
                         </div>
                         <div style="text-align: center">
                             <p>Trip description</p>
-                            <textarea style="width: 100%; height: 150px"></textarea>
+                            <input type="text" class="form-control" name="end-date"
+                                   required="required">
                         </div>
                         <div style="text-align: center" class="form-group">
                             <button type="submit" class="btn btn-primary btn-lg">Add Trip</button>
