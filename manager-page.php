@@ -15,8 +15,248 @@
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Outdoors</title>
+
     <?php
-    include "controller.php";
+    function creat_conn(){
+        $host="localhost";
+        $name="root";
+        $pass="";
+        $dbname="web-project";
+        $conn=new mysqli($host,$name,$pass,$dbname);
+
+        if(mysqli_connect_errno()){
+            echo "cant connect to data base";
+        }
+        else{
+            return $conn;
+        }
+    }
+
+    $action = isset($_GET['action']) ? $_GET['action'] : "";
+
+    ?>
+
+<!--    add flight function-->
+
+    <?php
+
+    function add_new_flight($user_obj){
+        $conn=creat_conn();
+        $prepare=$conn->prepare("INSERT INTO `flights` (`flightId`,`des`, `flightDate`,`flightTime`, `source`,`description`,`price`) VALUES (null,?,?,?,?,?,?)");
+        try{
+
+            $prepare->bind_param('ssssss',$user_obj["Destination"],$user_obj["start-date"],$user_obj["end-date"],$user_obj["from"],$user_obj["desc"],$user_obj["Price"]);
+
+            $prepare->execute();
+
+            return "success";
+
+        }catch(Exception $e){
+           return "wrong";
+        }
+    }
+
+
+    function create_new_flight()
+    {
+        $des = "";
+        $flightdate = "";
+        $flighttime = "";
+        $source = "";
+        $description = "";
+        $price = "";
+        if (isset($_POST["Destination"])) {
+            $des = $_POST["Destination"];
+        }
+        if (isset($_POST["start-date"])) {
+            $flightdate = $_POST["start-date"];
+        }
+        if (isset($_POST["end-date"])) {
+            $flighttime = $_POST["end-date"];
+        }
+        if (isset($_POST["from"])) {
+            $source = $_POST["from"];
+        }
+        if (isset($_POST["desc"])) {
+            $description = $_POST["desc"];
+        }
+        if (isset($_POST["Price"])) {
+            $price = $_POST["Price"];
+        }
+
+
+            $user_obj["Destination"] = $des;
+            $user_obj["start-date"] = $flightdate;
+            $user_obj["end-date"] = $flighttime;
+            $user_obj["from"] = $source;
+            $user_obj["desc"] = $description;
+            $user_obj["Price"] = $price;
+
+            $result = add_new_flight($user_obj);
+
+            if ($result == "success") {
+
+                ?>
+
+                <div class="alert alert-success" style="position: absolute; top: 10%; width: 100%; opacity: 0.8">
+                    <strong>new flight added successfully!</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <?php
+            } else {
+                ?>
+
+                <div class="alert alert-danger">
+                    <strong>flight already exists!</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <?php
+            }
+
+    }
+
+    ?>
+
+<!--    editing flights functions-->
+    <?php
+
+    function edit_flight_database($user_obj){
+        try{
+            $conn=creat_conn();
+            $prepare=$conn->prepare("update  `flights` set (`flight-id`,`des`, `flight-date`,`flight-time`, `source`,`description`) VALUES (null,?,?,?,?,?) where flightId=?");
+            $prepare->bind_param('sssss',$user_obj["Destination"],$user_obj["start-date"],$user_obj["end-date"],$user_obj["from"],$user_obj["desc"]);
+
+            $prepare->execute();
+
+            return "success";
+
+        }catch(Exception $e){
+            return "wrong";
+        }
+    }
+
+
+
+
+
+
+
+    function edit_flight()
+    {
+    $des = "";
+    $flightdate = "";
+    $flighttime = "";
+    $source = "";
+    $description = "";
+    if (isset($_POST["Destination"])) {
+    $des = $_POST["Destination"];
+    }
+    if (isset($_POST["start-date"])) {
+    $flightdate = $_POST["start-date"];
+    }
+    if (isset($_POST["end-date"])) {
+    $flighttime = $_POST["end-date"];
+    }
+    if (isset($_POST["from"])) {
+    $source = $_POST["from"];
+    }
+    if (isset($_POST["desc"])) {
+    $description = $_POST["desc"];
+    }
+
+
+    $user_obj["Destination"] = $des;
+    $user_obj["start-date"] = $flightdate;
+    $user_obj["end-date"] = $flighttime;
+    $user_obj["from"] = $source;
+    $user_obj["desc"] = $description;
+
+    $result = edit_flight_database($user_obj);
+
+    if ($result == "success") {
+
+    ?>
+
+    <div class="alert alert-success" style="position: absolute; top: 10%; width: 100%; opacity: 0.8">
+        <strong>new flight added successfully!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <?php
+            } else {
+                ?>
+
+    <div class="alert alert-danger">
+        <strong>flight already exists!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <?php
+    }
+
+    }
+
+
+//    delete functions
+     function delete_from_database($user_obj){
+         $conn=creat_conn();
+         $prepare=$conn->prepare("delete from  `flights`  where flightId=?");
+         try{
+
+             $prepare->bind_param('s',$user_obj["Flight_id"]);
+
+             $prepare->execute();
+
+             return "success";
+
+         }catch(Exception $e){
+             return "wrong";
+         }
+    }
+    function delete_flight(){
+        $flightID = "";
+        if (isset($_POST["Flight_id"])) {
+           $flightID = $_POST["Flight_id"];
+        }
+
+        $user_obj["Flight_id"] = $flightID;
+
+        $result = delete_from_database($user_obj);
+        if ($result == "success") {
+
+            ?>
+
+            <div class="alert alert-success" style="position: absolute; top: 10%; width: 100%; opacity: 0.8">
+                <strong>flight deleted</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <?php
+        } else {
+            ?>
+
+            <div class="alert alert-danger" style="position: absolute; top: 10%; width: 100%; opacity: 0.8">
+                <strong>failed to delete flight!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <?php
+        }
+    }
 
     ?>
 </head>
@@ -146,35 +386,39 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div style="text-align: center; padding-bottom: 2px !important; " class="modal-header">
-                <h2 style="display: inline-block; margin-top: 10px !important;">Add new trip</h2>
+                <h2 style="display: inline-block; margin-top: 10px !important;">ADD flight</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div style="text-align: center" class=" popup-design">
-                    <p>Please fill in all the data required to add a new trip</p>
-                    <form method="POST" action="controller.php?action=add-flight">
+                    <p>please fill all the required data to add a new Flight</p>
+                    <form method="POST" action="?action=add-flight">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-xs-6"><input type="text" class="form-control" name="From"
+                                <div class="col-xs-6"><input type="text" class="form-control" name="from"
                                                              placeholder="From" required="required"></div>
                                 <div class="col-xs-6"><input type="text" class="form-control" name="Destination"
                                                              placeholder="Destination" required="required"></div>
                             </div>
                         </div>
-                        <div style="margin-bottom:10px " class="row">
-                            <div > <p style="display: inline-block; text-align: initial; width: 200px;">Flight Date</p>
-                                <p style="display: inline-block; margin-left: 20px">Flight Time</p>
+                        <div style="margin-bottom:10px " class="row" >
+                            <div > <p style="display: inline-block; text-align: initial; width: 200px;height: 15px;">Flight Date</p>
+                                <p style="display: inline-block; margin-left: 20px; height: 15px">Flight Time</p>
                             </div>
                             <div class="col-xs-6"><input type="date" class="form-control" name="start-date"
                                                          required="required"></div>
                             <div class="col-xs-6"><input type="time" class="form-control" name="end-date"
                                                          required="required"></div>
                         </div>
+
+                            <div style="margin-bottom: 10px; width: 100%;"><input type="text" class="form-control" name="Price"
+                                                         placeholder="Price" required="required"></div>
+
                         <div style="text-align: center">
                             <p>Trip description</p>
-                            <input type="text" class="form-control" name="end-date"
+                            <input style="height: 80px; margin-bottom: 5px;" type="text" class="form-control" name="desc"
                                    required="required">
                         </div>
                         <div style="text-align: center" class="form-group">
@@ -189,6 +433,18 @@
 </div>
 <!--    /add new trip popup window-->
 
+<?php
+
+switch ($action) {
+    case "add-flight":
+        create_new_flight();
+        break;
+
+    default:
+}
+
+?>
+
 <!--edit and delete flights-->
 
 <div class="modal fade" id="edit-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -196,15 +452,14 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div style="text-align: center; padding-bottom: 2px !important; " class="modal-header">
-                <h2 style="display: inline-block; margin-top: 10px !important;">Add new trip</h2>
+                <h2 style="display: inline-block; margin-top: 10px !important;">Edit Flight</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div style="text-align: center" class=" popup-design">
-                    <p>Please fill in all the data required to add a new trip</p>
-                    <form action="/examples/actions/confirmation.php" method="post">
+                    <form method="POST" action="?action=delete-flight" >
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-xs-6"><input type="text" class="form-control" name="From"
@@ -222,13 +477,23 @@
                             <div class="col-xs-6"><input type="time" class="form-control" name="end-date"
                                                          required="required"></div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-xs-6"><input type="text" class="form-control" name="Price"
+                                                         placeholder="Price" required="required"></div>
+                            <div class="col-xs-6"><input type="text" class="form-control" name="Flight_id"
+                                                         placeholder="Flight id" required="required"></div>
+                        </div>
+
                         <div style="text-align: center">
                             <p>Trip description</p>
                             <textarea style="width: 100%; height: 150px"></textarea>
                         </div>
                         <div style="text-align: center" class="form-group">
-                            <button style="margin-right: 92px; width: 150px; height: 50px" type="submit" class="btn btn-primary btn-lg">delete flight</button>
-                            <button style="width: 150px; height: 50px" type="submit" class="btn btn-primary btn-lg">edit flight</button>
+                            <button  style="margin-right: 92px; width: 150px; height: 50px" type="submit" class="btn btn-primary btn-lg">delete flight</button>
+
+                            <button style="width: 150px; height: 50px" type="submit" class="btn btn-primary btn-lg" formaction="?action=edit-flight">edit flight</button>
+
                         </div>
                     </form>
 
@@ -237,6 +502,24 @@
         </div>
     </div>
 </div>
+<?php
+
+switch ($action) {
+    case "add-flight":
+        create_new_flight();
+        break;
+    case "edit-flight":
+
+        edit_flight();
+        break;
+    case "delete-flight":
+
+        delete_flight();
+        break;
+    default:
+}
+
+?>
 <!--/edit and delete flights-->
 
 </html>
