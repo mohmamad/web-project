@@ -22,6 +22,7 @@
 
 
     <?php
+    @session_start();
     function creat_conn(){
         $host="localhost";
         $name="root";
@@ -47,10 +48,10 @@
     function add_new_user($user_obj)
     {
         $conn = creat_conn();
-        $prepare = $conn->prepare("INSERT INTO `user` (`first-name`,`last-name`, `password`,`phone-number`, `email`) VALUES (?,?,?,?,?)");
+        $prepare = $conn->prepare("INSERT INTO `user` (`firstName`,`lastName`, `password`,`phoneNumber`, `email`,`birthDate`,`Bio`,`country`) VALUES (?,?,?,?,?,?,null,?)");
 
         try {
-            $prepare->bind_param('sssss', $user_obj['firstname'], $user_obj["lastname"], $user_obj["password"], $user_obj["phonenumber"], $user_obj["email"]);
+            $prepare->bind_param('sssssss', $user_obj['firstname'], $user_obj["lastname"], $user_obj["password"], $user_obj["phonenumber"], $user_obj["email"], $user_obj["birthDate"], $user_obj["country"]);
 
             $prepare->execute();
 
@@ -72,6 +73,11 @@
         $password = "";
         $repassword = "";
         $phonenumber = "";
+        $birthdate = "";
+        $country = "";
+
+
+
         if (isset($_POST["email"])) {
             $email = $_POST["email"];
         }
@@ -90,6 +96,12 @@
         if (isset($_POST["phonenumber"])) {
             $phonenumber = $_POST["phonenumber"];
         }
+        if (isset($_POST["birthDate"])) {
+            $birthdate = $_POST["birthDate"];
+        }
+        if (isset($_POST["country"])) {
+            $country = $_POST["country"];
+        }
 
         if ($password == $repassword && $password != "") {
 
@@ -99,6 +111,9 @@
             $user_obj["password"] = $password;
             $user_obj["repassword"] = $repassword;
             $user_obj["phonenumber"] = $phonenumber;
+            $user_obj["birthDate"] = $birthdate;
+            $user_obj["country"] = $country;
+
 
             $result = add_new_user($user_obj);
 
@@ -227,12 +242,14 @@
             else {
                 ?>
 
+
                 <div class="alert alert-success">
                     <strong>login successfully</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
 
                 <?php
             }
@@ -433,9 +450,15 @@
                                        placeholder="Confirm Password" required="required">
                             </div>
                             <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="phonenumber"
+                                                                 placeholder="phone number" required="required"></div>
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="country"
+                                                                 placeholder="country" required="required"></div>
+                                </div>
+                                <input type="date" class="form-control" name="birthDate"
+                                       required="required" style="margin-top: 10px">
 
-                                <input type="text" class="form-control" name="phonenumber"
-                                       placeholder="phone number" required="required">
                             </div>
                             <div class="form-group">
 
@@ -492,6 +515,7 @@
         <div class="col-sm-6 col-md-3 col-lg-4 pointer-cursor-adds">
 
             <div class="box bg-white" style="margin: 5px;padding-bottom: 0px;" data-work="London">
+
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal"
                    data-target="#conform-flight" href="#"></a>
                 <img src="pics/attraction/londn.jpeg" alt="" class="img-fluid">
@@ -556,6 +580,27 @@
             </div>
             <div class="modal-body">
                 <div style="text-align: center" class=" popup-design">
+                    <div class="row">
+                        <div class="col-xs-6"><input type="text" class="form-control" name="from"
+                                                     placeholder="From" required="required"></div>
+                        <div class="col-xs-6"><input type="text" class="form-control" name="Destination"
+                                                     placeholder="Destination" required="required"></div>
+                    </div>
+                </div>
+                <div style="margin-bottom:10px " class="row">
+                    <div > <p style="display: inline-block; text-align: initial; width: 200px;">Flight Date</p>
+                        <p style="display: inline-block; margin-left: 210px">Flight Time</p>
+                    </div>
+                    <div class="col-xs-6"><input type="date" class="form-control" name="start-date"
+                                                 required="required"></div>
+                    <div class="col-xs-6"><input type="time" class="form-control" name="end-date"
+                                                 required="required"></div>
+                </div>
+                <div style="text-align: center">
+                    <p>Trip description</p>
+                    <input style="height: 80px; margin-bottom: 5px;" type="text" class="form-control" name="desc"
+                           required="required">
+                </div>
 
                     <p>Please fill in all the data required to book a new flight</p>
                     <form action="/examples/actions/confirmation.php" method="post">
@@ -572,31 +617,6 @@
                         <div style="text-align: center" class="form-group">
                             <button type="submit" class="btn btn-primary btn-lg">book flight</button>
 
-                    <p>Please fill in all the data required to add a new trip</p>
-                    <form action="/examples/actions/confirmation.php" method="post">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-xs-6"><input type="text" class="form-control" name="From"
-                                                             placeholder="From" required="required"></div>
-                                <div class="col-xs-6"><input type="text" class="form-control" name="Destination"
-                                                             placeholder="Destination" required="required"></div>
-                            </div>
-                        </div>
-                        <div style="margin-bottom:10px " class="row">
-                            <div > <p style="display: inline-block; text-align: initial; width: 200px;">Flight Date</p>
-                                <p style="display: inline-block; margin-left: 20px">Flight Time</p>
-                            </div>
-                            <div class="col-xs-6"><input type="date" class="form-control" name="start-date"
-                                                         required="required"></div>
-                            <div class="col-xs-6"><input type="time" class="form-control" name="end-date"
-                                                         required="required"></div>
-                        </div>
-                        <div style="text-align: center">
-                            <p>Trip description</p>
-                            <textarea style="width: 100%; height: 150px"></textarea>
-                        </div>
-                        <div style="text-align: center" class="form-group">
-                            <button type="submit" class="btn btn-primary btn-lg">Add Trip</button>
 
                         </div>
                     </form>
