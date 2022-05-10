@@ -70,9 +70,9 @@ nav .navbar-nav li a:active {
 /* searchbar */
 .searchBar {
     background-color: #ffffff;
-    width: 50%;
+    width: 100%;
     margin: auto;
-    top: 65%;
+    top: 78%;
     z-index: 1;
 }
 .input-group-date{

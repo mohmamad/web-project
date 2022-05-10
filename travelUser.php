@@ -256,6 +256,7 @@
 
     ?>
 
+<!--    showing data from database-->
 
 
 
@@ -303,10 +304,10 @@
     <!--      /navbar   -->
 
     <!--      searchbar   -->
-    <nav class="navbar navbar-expand-sm  searchBar">
-        <div>
-            <form class="navbar-form row clear" action="#">
-                <div class="col-sm-5 align" style="margin-right: 15px">
+    <nav class="navbar navbar-expand-sm  searchBar" style="width: 36%;">
+        <div style="width: 100%">
+            <form class="navbar-form row clear" action="#" style="width: 100%;">
+                <div class="col-sm-5 align" style="margin-right: 90px">
                     <input type="text" class="form-control input-style" placeholder="Search" name="search">
                 </div>
                 <!--      date picker   -->
@@ -324,17 +325,6 @@
                 <div class="col-sm-4 pull-right input-group" style="width: 8% !important;">
                     <button class="btn btn-primary pull-right " type="submit"> search</button>
                 </div>
-                <!--               number of travellers-->
-                <div style="display: inline-block; height: 34px; width: 180px; margin-left: 10px">
-                    <div class="number">
-                        <span>number of adults:</span>
-                        <span class="minus">-</span>
-                        <input type="text" value="1" style="width: 20px; border:1px solid #1e47f3;"/>
-                        <span class="plus">+</span>
-                    </div>
-
-                </div>
-
 
             </form>
         </div>
@@ -589,13 +579,19 @@
                     </div>
                 </div>
                 <div style="margin-bottom:10px " class="row">
-                    <div > <p style="display: inline-block; text-align: initial; width: 200px;">Flight Date</p>
+                    <div > <p style="display: inline-block; text-align: initial; width: 100px;margin-left: 100px">Flight Date</p>
                         <p style="display: inline-block; margin-left: 210px">Flight Time</p>
                     </div>
                     <div class="col-xs-6"><input type="date" class="form-control" name="start-date"
                                                  required="required"></div>
                     <div class="col-xs-6"><input type="time" class="form-control" name="end-date"
                                                  required="required"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6"><input type="text" class="form-control" name="price"
+                                                 placeholder="Price" required="required"></div>
+                    <div class="col-xs-6"><input type="text" class="form-control" name="flightID"
+                                                 placeholder="flight id" required="required"></div>
                 </div>
                 <div style="text-align: center">
                     <p>Trip description</p>
