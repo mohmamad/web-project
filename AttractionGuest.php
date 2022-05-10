@@ -1,3 +1,68 @@
+<?php
+session_start();
+$email = "";
+$password = "";
+if (isset($_POST["login-email"])&&isset($_POST["login-password"])) {
+    $email = $_POST["login-email"];
+    $password = $_POST["login-password"];
+
+
+    $emailresult = check_login_email($email);
+
+
+    if ($emailresult == "") {
+        ?>
+
+        <div class="alert alert-danger">
+            <strong>no matched email or password!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <?php
+    } else {
+        $passwordresult = check_login_password($password);
+        if($passwordresult == ""){
+            ?>
+
+            <div class="alert alert-danger">
+                <strong>no matched email or password!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <?php
+        }
+        else {
+            ?>
+
+
+            <div class="alert alert-success">
+                <strong>login successfully</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+
+            <?php
+            $_SESSION['ismember']=1;
+            $_SESSION['email']=$email;
+            $_SESSION['firstName'] = "";
+            $_SESSION['lastName']="";
+            $_SESSION['fullName']="";
+            $_SESSION['phoneNumber']="";
+            $_SESSION['country']="";
+            $_SESSION['bio']="";
+            header("Location:AttractionUser.php");
+        }
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +78,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet"> <meta charset="UTF-8">
+
+
+    <script src="https://kit.fontawesome.com/d2dd247174.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet"> <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Outdoors</title>
 </head>
 
@@ -20,12 +96,15 @@
 <header>
 <!--    navbar-->
     <nav class="navbar navbar-expand-sm navbar-fixed-top myNavbar mt-5">
-        <div class="container-fluid ">
+        <button class="navbar-toggler show-hided  fa fa-bars btn" style="margin-top: 10px;margin-left: 10px;" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="container-fluid collapse navbar-collapse" id="collapsibleNavbar">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Outdoors</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="http://localhost:63342/webProject/travel.html?_ijt=nfl8040gbfj027ian69dghumid&_ij_reload=RELOAD_ON_SAVE#">Home</a></li>
+                <li class="active"><a href="travelGuest.php">Home</a></li>
                 <li><a href="#">Attraction</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -167,79 +246,79 @@
 </div>
 <div class="Destenation text-center">
     <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="London">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/londn.jpeg" alt="" class="img-fluid">
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Maldives">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/maldives.jpg" alt="" class="img-fluid">
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Berlin">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/berlin.jpg" alt="" class="img-fluid">
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Humburg">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/humburg.jpg" alt="" class="img-fluid">
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Istanbul">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/istanbul.jpg" alt="" class="img-fluid">
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Oslo">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/oslo.jpg" alt="" class="img-fluid">
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Palermo">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/palermo.jpg" alt="" class="img-fluid">
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Paris">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/paris.jpg" alt="" class="img-fluid">
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Pula">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/pula.jpg" alt="" class="img-fluid">
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Rome">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/rome.jpg" alt="" class="img-fluid">
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Sofia">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/sofia.jpg" alt="" class="img-fluid">
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Stockholm">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/stockholm.jpg" alt="" class="img-fluid">
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Vienna">
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/veina.jpg" alt="" class="img-fluid">

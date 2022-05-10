@@ -17,11 +17,15 @@ body {
     height: 50%;
     width: 100%;
 }
-
+@media screen and (min-width: 600px) {
+    .show-hided {
+        display: none !important;
+    }
+}
 /* background  */
 /* navbar */
 .myNavbar {
-    background-color: #0059ff;
+    background-color: #302135;
     opacity: 0.8;
 }
 
