@@ -1,3 +1,46 @@
+<?php
+    session_start();
+    if(isset($_SESSION['ismember']))
+    {
+        if($_SESSION['ismember']==1)
+        {
+            try {
+
+
+                $db = new mysqli('localhost', 'root', '', 'web-project');
+                $qry = "select * from user";
+                $res = $db->query($qry);
+                for ($i = 0; $i < $res->num_rows; $i++) {
+                    $row = $res->fetch_object();
+
+                    if ($row->email == $_SESSION['email']) {
+
+                        $_SESSION['firstName'] = $row->firstName;
+                        $_SESSION['lastName'] = $row->lastName;
+                        $_SESSION['fullName'] = strtoupper(" " . $row->firstName . " " . $row->lastName);
+                        $_SESSION['phoneNumber'] = $row->phoneNumber;
+                        $_SESSION['country'] = $row->country;
+                        $_SESSION['bio'] = $row->Bio;
+                    }
+                }
+                $db->close();
+            }
+            catch (exception $ex){
+
+            }
+
+        }
+        else{
+            header("travelGuest.php");
+
+
+        }
+
+    }
+    else{
+        header("travelGuest.php");
+    }
+    ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +60,15 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"/>
 
     <script type="text/javascript" src="traveling.js"></script>
+
+    <script src="https://kit.fontawesome.com/d2dd247174.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet"> <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Outdoors</title>
 
@@ -200,61 +252,6 @@
     }
 
 
-    function get_login_data()
-    {
-        $email = "";
-        $password = "";
-        if (isset($_POST["login-email"])) {
-            $email = $_POST["login-email"];
-        }
-        if (isset($_POST["login-password"])) {
-            $password = $_POST["login-password"];
-        }
-
-        $emailresult = check_login_email($email);
-
-
-        if ($emailresult == "") {
-            ?>
-
-            <div class="alert alert-danger">
-                <strong>no matched email or password!</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            <?php
-        } else {
-            $passwordresult = check_login_password($password);
-            if($passwordresult == ""){
-                ?>
-
-                <div class="alert alert-danger">
-                    <strong>no matched email or password!</strong>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <?php
-            }
-            else {
-                ?>
-
-
-                <div class="alert alert-success">
-                    <strong>login successfully</strong>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-
-                <?php
-            }
-        }
-    }
 
 
     ?>
@@ -271,32 +268,33 @@
     <!--       /phrase -->
 
     <!--      navbar   -->
-    <nav class="navbar navbar-expand-sm navbar-fixed-top myNavbar mt-5">
-        <div class="container-fluid ">
+    <nav class="navbar navbar-expand-md navbar-fixed-top myNavbar">
+        <button class="navbar-toggler show-hided  fa fa-bars btn" style="margin-top: 10px;margin-left: 10px;" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="container-fluid collapse navbar-collapse" id="collapsibleNavbar">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Outdoors</a>
             </div>
             <ul class="nav navbar-nav">
 
                 <li class="active"><a
-                            href="http://localhost:63342/webProject/travel.html?_ijt=nfl8040gbfj027ian69dghumid&_ij_reload=RELOAD_ON_SAVE#">Home</a>
+                            href=""">Home</a>
                 </li>
                 <li>
-                    <a href="http://localhost:63342/webProject/Attraction.html?_ijt=cih8aga574s0ri0abhjqnerdt4&_ij_reload=RELOAD_ON_SAVE">Attraction</a>
+                    <a href="AttractionUser.php">Attraction</a>
                 </li>
 
-                <li class="active"><a href="http://localhost:63342/webProject/travel.html?_ijt=nfl8040gbfj027ian69dghumid&_ij_reload=RELOAD_ON_SAVE#">Home</a></li>
-                <li><a href="http://localhost:63342/webProject/Attraction.html?_ijt=cih8aga574s0ri0abhjqnerdt4&_ij_reload=RELOAD_ON_SAVE">Attraction</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <!--                signup -->
-                <li><a data-toggle="modal" data-target="#exampleModal" href="#"> <span
+                <li><a href="profile.php"> <span id = "fullname"
 
-                                class=" glyphicon glyphicon-user "> </span>Sign Up</a></li>
+                                class=" glyphicon glyphicon-user "> </span></a></li>
                 <!--                sign in-->
-                <li><a data-toggle="modal" data-target="#exampleModalCenter" href="#"><span
-                                class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a data-toggle="modal" data-target="#exampleModalCenter" href="travelGuest.php"><span
+                                class="glyphicon glyphicon-log-in"></span> Log Our</a></li>
 
 
             </ul>
@@ -342,6 +340,9 @@
         </div>
     </nav>
     <!--     / searchbar   -->
+    <script type="text/javascript">
+        document.getElementById('fullname').innerHTML="<?php echo $_SESSION['fullName']?>"
+    </script>
     <!--      sign in   -->
     <div class="modal fade sign-in" id="exampleModalCenter" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
