@@ -1,67 +1,45 @@
 <?php
 session_start();
-$email = "";
-$password = "";
-if (isset($_POST["login-email"])&&isset($_POST["login-password"])) {
-    $email = $_POST["login-email"];
-    $password = $_POST["login-password"];
+if(isset($_SESSION['ismember']))
+{
+    if($_SESSION['ismember']==1)
+    {
+        try {
 
 
-    $emailresult = check_login_email($email);
+            $db = new mysqli('localhost', 'root', '', 'web-project');
+            $qry = "select * from user";
+            $res = $db->query($qry);
+            for ($i = 0; $i < $res->num_rows; $i++) {
+                $row = $res->fetch_object();
 
+                if ($row->email == $_SESSION['email']) {
 
-    if ($emailresult == "") {
-        ?>
-
-        <div class="alert alert-danger">
-            <strong>no matched email or password!</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-
-        <?php
-    } else {
-        $passwordresult = check_login_password($password);
-        if($passwordresult == ""){
-            ?>
-
-            <div class="alert alert-danger">
-                <strong>no matched email or password!</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            <?php
+                    $_SESSION['firstName'] = $row->firstName;
+                    $_SESSION['lastName'] = $row->lastName;
+                    $_SESSION['fullName'] = strtoupper(" " . $row->firstName . " " . $row->lastName);
+                    $_SESSION['phoneNumber'] = $row->phoneNumber;
+                    $_SESSION['country'] = $row->country;
+                    $_SESSION['bio'] = $row->Bio;
+                }
+            }
+            $db->close();
         }
-        else {
-            ?>
+        catch (exception $ex){
 
-
-            <div class="alert alert-success">
-                <strong>login successfully</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-
-
-            <?php
-            $_SESSION['ismember']=1;
-            $_SESSION['email']=$email;
-            $_SESSION['firstName'] = "";
-            $_SESSION['lastName']="";
-            $_SESSION['fullName']="";
-            $_SESSION['phoneNumber']="";
-            $_SESSION['country']="";
-            $_SESSION['bio']="";
-            header("Location:AttractionUser.php");
         }
+
     }
-}
+    else{
+        header("AttractionGuest.php");
 
+
+    }
+
+}
+else{
+    header("AttractionGuest.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -109,10 +87,10 @@ if (isset($_POST["login-email"])&&isset($_POST["login-password"])) {
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <!--                signup -->
-                <li><a data-toggle="modal" data-target="#exampleModal" href="#"> <span
+                <li><a  href="profile.php"> <span
                             class=" glyphicon glyphicon-user " id ='fullnameattra'> </span></a></li>
                 <!--                sign in-->
-                <li><a data-toggle="modal" data-target="#exampleModalCenter" href="#"><span
+                <li><a href="AttractionGuest.php"><span
                             class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
             </ul>
             <script type="text/javascript">
@@ -252,6 +230,7 @@ if (isset($_POST["login-email"])&&isset($_POST["login-password"])) {
     <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="London">
+
                 <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/londn.jpeg" alt="" class="img-fluid">
             </div>
