@@ -327,40 +327,23 @@ if ($emailresult == "") {
     <!--      /navbar   -->
 
     <!--      searchbar   -->
-    <nav class="navbar navbar-expand-sm  searchBar">
-        <div>
-            <form class="navbar-form row clear" action="#">
-                <div class="col-sm-5 align" style="margin-right: 15px">
-                    <input type="text" class="form-control input-style" placeholder="Search" name="search">
-                </div>
-                <!--      date picker   -->
-
-                <div class="input-group-date input-group col-sm-4" style="margin-left: 10px">
-                    <input type="text" class="pointer-cursor-date" name="daterange" value="01/01/2015 - 01/31/2015"/>
-
-                    <script type="text/javascript">
-                        $(function () {
-                            $('input[name="daterange"]').daterangepicker();
-                        });
-                    </script>
-
-                </div>
-                <div class="col-sm-4 pull-right input-group" style="width: 8% !important;">
-                    <button class="btn btn-primary pull-right " type="submit"> search</button>
-                </div>
-                <!--               number of travellers-->
-                <div style="display: inline-block; height: 34px; width: 180px; margin-left: 10px">
-                    <div class="number">
-                        <span>number of adults:</span>
-                        <span class="minus">-</span>
-                        <input type="text" value="1" style="width: 20px; border:1px solid #1e47f3;"/>
-                        <span class="plus">+</span>
-                    </div>
-
-                </div>
+    <nav class="navbar navbar-expand-sm  searchBar"  style="width: 36%;">
+        <div style="width: 100%;height: 20px;">
+            <!--            <form class="navbar-form row clear" action="#" style="width: 100%;" method="">-->
+            <div class="col-sm-5 align" style="margin-right: 90px">
+                <input type="text" class="form-control input-style" style="margin-top: 7px;margin-left: 5px;width: 380%;" placeholder="Search" maxlength="100"; name="search"id="txtsearch">
+            </div>
+            <!--      date picker   -->
 
 
-            </form>
+
+
+
+            <div class="col-sm-4 pull-right input-group" style="width: 8% !important;">
+                <button class="btn btn-primary pull-right " type="submit" onclick="showhide()"style="margin-top: 7px;margin-right: 5px;width: 120%;"> search</button>
+            </div>
+
+            <!--            </form>-->
         </div>
     </nav>
     <!--     / searchbar   -->
@@ -533,57 +516,394 @@ if ($emailresult == "") {
 
 <div class="Destenation text-center" style="position: absolute; top: 62%">
 
-    <div class="row">
-        <div class="col-sm-6 col-md-3 col-lg-4 pointer-cursor-adds">
+    <div class="row" >
 
+
+        <div class="col-sm-6 col-md-6 col-lg-6" id="paris">
             <div class="box bg-white" style="margin: 5px;padding-bottom: 0px;" data-work="London">
-
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal"
-                   data-target="#conform-flight" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/londn.jpeg" alt="" class="img-fluid">
             </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div style="text-align: center; padding-bottom: 2px !important; " class="modal-header">
+                        <h2 style="display: inline-block; margin-top: 10px !important;">Edit Flight</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="text-align: center" class=" popup-design">
+                            <form method="POST" action="?action=delete-flight" >
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6"><input type="text" class="form-control" name="From" id="from"
+                                                                     placeholder="From" required="required"></div>
+                                        <div class="col-xs-6"><input type="text" class="form-control" name="Destination"
+                                                                     placeholder="Destination" required="required"></div>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:10px " class="row">
+                                    <div > <p style="display: inline-block; text-align: initial; width: 200px;">Flight Date</p>
+                                        <p style="display: inline-block; margin-left: 20px">Flight Time</p>
+                                    </div>
+                                    <div class="col-xs-6"><input type="date" class="form-control" name="start-date"
+                                                                 required="required"></div>
+                                    <div class="col-xs-6"><input type="time" class="form-control" name="end-date"
+                                                                 required="required"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="Price"
+                                                                 placeholder="Price" required="required"></div>
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="Flight_id" id="flightid"
+                                                                 placeholder="Flight id" required="required"></div>
+                                </div>
+
+                                <div style="text-align: center">
+                                    <p>Trip description</p>
+                                    <textarea style="width: 100%; height: 150px"></textarea>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6 col-md-3 col-lg-4 pointer-cursor-adds">
-
+        <div class="col-sm-6 col-md-6 col-lg-6"id="oslo">
             <div class="box bg-white" style="margin: 5px;padding-bottom: 0px;" data-work="Maldives">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal"
-                   data-target="#conform-flight" href="#"></a>
-
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/maldives.jpg" alt="" class="img-fluid">
             </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div style="text-align: center; padding-bottom: 2px !important; " class="modal-header">
+                        <h2 style="display: inline-block; margin-top: 10px !important;">Edit Flight</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="text-align: center" class=" popup-design">
+                            <form method="POST" action="?action=delete-flight" >
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6"><input type="text" class="form-control" name="From" id="from"
+                                                                     placeholder="From" required="required"></div>
+                                        <div class="col-xs-6"><input type="text" class="form-control" name="Destination"
+                                                                     placeholder="Destination" required="required"></div>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:10px " class="row">
+                                    <div > <p style="display: inline-block; text-align: initial; width: 200px;">Flight Date</p>
+                                        <p style="display: inline-block; margin-left: 20px">Flight Time</p>
+                                    </div>
+                                    <div class="col-xs-6"><input type="date" class="form-control" name="start-date"
+                                                                 required="required"></div>
+                                    <div class="col-xs-6"><input type="time" class="form-control" name="end-date"
+                                                                 required="required"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="Price"
+                                                                 placeholder="Price" required="required"></div>
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="Flight_id" id="flightid"
+                                                                 placeholder="Flight id" required="required"></div>
+                                </div>
+
+                                <div style="text-align: center">
+                                    <p>Trip description</p>
+                                    <textarea style="width: 100%; height: 150px"></textarea>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6 col-md-3 col-lg-4 pointer-cursor-adds">
-
+        <div class="col-sm-6 col-md-6 col-lg-6"id="palermo">
             <div class="box bg-white" style="margin: 5px;padding-bottom: 0px;" data-work="Berlin">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal"
-                   data-target="#conform-flight" href="#"></a>
-
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/berlin.jpg" alt="" class="img-fluid">
             </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div style="text-align: center; padding-bottom: 2px !important; " class="modal-header">
+                        <h2 style="display: inline-block; margin-top: 10px !important;">Edit Flight</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="text-align: center" class=" popup-design">
+                            <form method="POST" action="?action=delete-flight" >
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6"><input type="text" class="form-control" name="From" id="from"
+                                                                     placeholder="From" required="required"></div>
+                                        <div class="col-xs-6"><input type="text" class="form-control" name="Destination"
+                                                                     placeholder="Destination" required="required"></div>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:10px " class="row">
+                                    <div > <p style="display: inline-block; text-align: initial; width: 200px;">Flight Date</p>
+                                        <p style="display: inline-block; margin-left: 20px">Flight Time</p>
+                                    </div>
+                                    <div class="col-xs-6"><input type="date" class="form-control" name="start-date"
+                                                                 required="required"></div>
+                                    <div class="col-xs-6"><input type="time" class="form-control" name="end-date"
+                                                                 required="required"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="Price"
+                                                                 placeholder="Price" required="required"></div>
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="Flight_id" id="flightid"
+                                                                 placeholder="Flight id" required="required"></div>
+                                </div>
+
+                                <div style="text-align: center">
+                                    <p>Trip description</p>
+                                    <textarea style="width: 100%; height: 150px"></textarea>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6 col-md-3 col-lg-6 pointer-cursor-adds">
-
+        <div class="col-sm-6 col-md-6 col-lg-6"id="veina">
             <div class="box bg-white" style="margin: 5px;padding-bottom: 0px;" data-work="Humburg">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal"
-                   data-target="#conform-flight" href="#"></a>
-
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
                 <img src="pics/attraction/humburg.jpg" alt="" class="img-fluid">
             </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div style="text-align: center; padding-bottom: 2px !important; " class="modal-header">
+                        <h2 style="display: inline-block; margin-top: 10px !important;">Edit Flight</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="text-align: center" class=" popup-design">
+                            <form method="POST" action="?action=delete-flight" >
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6"><input type="text" class="form-control" name="From" id="from"
+                                                                     placeholder="From" required="required"></div>
+                                        <div class="col-xs-6"><input type="text" class="form-control" name="Destination"
+                                                                     placeholder="Destination" required="required"></div>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:10px " class="row">
+                                    <div > <p style="display: inline-block; text-align: initial; width: 200px;">Flight Date</p>
+                                        <p style="display: inline-block; margin-left: 20px">Flight Time</p>
+                                    </div>
+                                    <div class="col-xs-6"><input type="date" class="form-control" name="start-date"
+                                                                 required="required"></div>
+                                    <div class="col-xs-6"><input type="time" class="form-control" name="end-date"
+                                                                 required="required"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="Price"
+                                                                 placeholder="Price" required="required"></div>
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="Flight_id" id="flightid"
+                                                                 placeholder="Flight id" required="required"></div>
+                                </div>
+
+                                <div style="text-align: center">
+                                    <p>Trip description</p>
+                                    <textarea style="width: 100%; height: 150px"></textarea>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6 col-md-3 col-lg-6 pointer-cursor-adds">
+        <div class="col-sm-6 col-md-6 col-lg-6"id="istanbul">
+            <div class="box bg-white" style="margin: 5px;padding-bottom: 0px;" data-work="Istanbul">
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <img src="pics/attraction/istanbul.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div style="text-align: center; padding-bottom: 2px !important; " class="modal-header">
+                        <h2 style="display: inline-block; margin-top: 10px !important;">Edit Flight</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="text-align: center" class=" popup-design">
+                            <form method="POST" action="?action=delete-flight" >
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6"><input type="text" class="form-control" name="From" id="from"
+                                                                     placeholder="From" required="required"></div>
+                                        <div class="col-xs-6"><input type="text" class="form-control" name="Destination"
+                                                                     placeholder="Destination" required="required"></div>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:10px " class="row">
+                                    <div > <p style="display: inline-block; text-align: initial; width: 200px;">Flight Date</p>
+                                        <p style="display: inline-block; margin-left: 20px">Flight Time</p>
+                                    </div>
+                                    <div class="col-xs-6"><input type="date" class="form-control" name="start-date"
+                                                                 required="required"></div>
+                                    <div class="col-xs-6"><input type="time" class="form-control" name="end-date"
+                                                                 required="required"></div>
+                                </div>
 
-            <div class="box bg-white " style="margin: 5px;padding-bottom: 0px;" data-work="Istanbul">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal"
-                   data-target="#conform-flight" href="#"></a>
+                                <div class="row">
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="Price"
+                                                                 placeholder="Price" required="required"></div>
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="Flight_id" id="flightid"
+                                                                 placeholder="Flight id" required="required"></div>
+                                </div>
 
+                                <div style="text-align: center">
+                                    <p>Trip description</p>
+                                    <textarea style="width: 100%; height: 150px"></textarea>
+                                </div>
 
-                <img src="pics/attraction/istanbul.jpg" alt="" class="img-fluid ">
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6"id="humburg">
+            <div class="box bg-white" style="margin: 5px;padding-bottom: 0px;" data-work="Oslo">
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <img src="pics/attraction/oslo.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div style="text-align: center; padding-bottom: 2px !important; " class="modal-header">
+                        <h2 style="display: inline-block; margin-top: 10px !important;">Edit Flight</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="text-align: center" class=" popup-design">
+                            <form method="POST" action="?action=delete-flight" >
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6"><input type="text" class="form-control" name="From" id="from"
+                                                                     placeholder="From" required="required"></div>
+                                        <div class="col-xs-6"><input type="text" class="form-control" name="Destination"
+                                                                     placeholder="Destination" required="required"></div>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:10px " class="row">
+                                    <div > <p style="display: inline-block; text-align: initial; width: 200px;">Flight Date</p>
+                                        <p style="display: inline-block; margin-left: 20px">Flight Time</p>
+                                    </div>
+                                    <div class="col-xs-6"><input type="date" class="form-control" name="start-date"
+                                                                 required="required"></div>
+                                    <div class="col-xs-6"><input type="time" class="form-control" name="end-date"
+                                                                 required="required"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="Price"
+                                                                 placeholder="Price" required="required"></div>
+                                    <div class="col-xs-6"><input type="text" class="form-control" name="Flight_id" id="flightid"
+                                                                 placeholder="Flight id" required="required"></div>
+                                </div>
+
+                                <div style="text-align: center">
+                                    <p>Trip description</p>
+                                    <textarea style="width: 100%; height: 150px"></textarea>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <script type="text/javascript">
+            function showhide() {
+                let ser=document.getElementById('txtsearch').value;
 
+                if(ser== 'paris')
+                {
+                    document.getElementById('oslo').style = "display:none"
+                    document.getElementById('palermo').style = "display:none";
+                    document.getElementById('veina').style = "display:none";
+                    document.getElementById('istanbul').style = "display:none";
+                    document.getElementById('humburg').style = "display:none";
+                }
+                else if(ser=='oslo'){
+                    document.getElementById('paris').style = "display:none"
+                    document.getElementById('palermo').style = "display:none";
+                    document.getElementById('veina').style = "display:none";
+                    document.getElementById('istanbul').style = "display:none";
+                    document.getElementById('humburg').style = "display:none";
+                }
+                else if(ser=='palermo'){
+                    document.getElementById('oslo').style = "display:none"
+                    document.getElementById('paris').style = "display:none";
+                    document.getElementById('veina').style = "display:none";
+                    document.getElementById('istanbul').style = "display:none";
+                    document.getElementById('humburg').style = "display:none";
+                }
+                else if(ser=='veina'){
+                    document.getElementById('oslo').style = "display:none"
+                    document.getElementById('palermo').style = "display:none";
+                    document.getElementById('paris').style = "display:none";
+                    document.getElementById('istanbul').style = "display:none";
+                    document.getElementById('humburg').style = "display:none";
+                }
+                else if(ser == 'istanbul'){
+                    document.getElementById('oslo').style = "display:none"
+                    document.getElementById('palermo').style = "display:none";
+                    document.getElementById('veina').style = "display:none";
+                    document.getElementById('paris').style = "display:none";
+                    document.getElementById('humburg').style = "display:none";
+                }
+                else if(ser='humburg'){
+                    document.getElementById('oslo').style = "display:none"
+                    document.getElementById('palermo').style = "display:none";
+                    document.getElementById('veina').style = "display:none";
+                    document.getElementById('istanbul').style = "display:none";
+                    document.getElementById('paris').style = "display:none";
+                }
+                else {
+                    document.getElementById('oslo').style = "display:none"
+                    document.getElementById('palermo').style = "display:none";
+                    document.getElementById('veina').style = "display:none";
+                    document.getElementById('istanbul').style = "display:none";
+                    document.getElementById('paris').style = "display:none";
+                    document.getElementById('Humburg').style = "display:none";
+
+
+                }
+
+
+
+            }
+
+        </script>;
     </div>
 </div>
+
 <!--/adds -->
 
 <!--book flights-->

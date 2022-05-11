@@ -139,7 +139,7 @@ if (isset($_POST["login-email"])&&isset($_POST["login-password"])) {
                         <!-- Password input -->
                         <div class="form-outline mb-4 control-container">
                             <label class="form-label" for="form2Example2">Password</label>
-                            <input type="password" id="form2Example2" class="form-control"/>
+                            <input type="" id="form2Example2" class="form-control"/>
                         </div>
 
                         <!-- 2 column grid layout for inline styling -->
@@ -248,84 +248,162 @@ if (isset($_POST["login-email"])&&isset($_POST["login-password"])) {
     <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="London">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#descriptioncpuntries" id="London" href="#" onclick="f(this.id)"></a>
                 <img src="pics/attraction/londn.jpeg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Maldives">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#descriptioncpuntries" id="Maldives" href="#" onclick="f(this.id)"></a>
                 <img src="pics/attraction/maldives.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Berlin">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#descriptioncpuntries" id="Berlin" href="#"onclick="f(this.id)"></a>
                 <img src="pics/attraction/berlin.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Humburg">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#descriptioncpuntries" id="Humburg" href="#" onclick="f(this.id)"></a>
                 <img src="pics/attraction/humburg.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Istanbul">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#descriptioncpuntries" id="Istanbul" href="#" onclick="f(this.id)"></a>
                 <img src="pics/attraction/istanbul.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Oslo">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#descriptioncpuntries" id="Oslo" href="#" onclick="f(this.id)"></a>
                 <img src="pics/attraction/oslo.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Palermo">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#descriptioncpuntries" id="Palermo" href="#" onclick="f(this.id)"></a>
                 <img src="pics/attraction/palermo.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Paris">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#descriptioncpuntries"  id="Paris"href="#" onclick="f(this.id)"></a>
                 <img src="pics/attraction/paris.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Pula">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#descriptioncpuntries" id="Pula" href="#" onclick="f(this.id)"></a>
                 <img src="pics/attraction/pula.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Rome">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#descriptioncpuntries" id="Rome" href="#" onclick="f(this.id)"></a>
                 <img src="pics/attraction/rome.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Sofia">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#descriptioncpuntries" id="sofia" href="#" onclick="f(this.id)"></a>
                 <img src="pics/attraction/sofia.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Stockholm">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#descriptioncpuntries" id="Stockholm" href="#" onclick="f(this.id)"></a>
                 <img src="pics/attraction/stockholm.jpg" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 imgpadding">
             <div class="box bg-white"  style="margin: 5px;padding-bottom: 0px;" data-work="Vienna">
-                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#edit-delete" href="#"></a>
+                <a style="width:100%; height: 100%; position: absolute " data-toggle="modal" data-target="#descriptioncpuntries"id="vienna"  href="#"onclick="f(this.id)"></a>
                 <img src="pics/attraction/veina.jpg" alt="" class="img-fluid">
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function f(id){
+
+        if(id=='London') {
+            document.getElementById('txtareacountry').value="• London\nLondon is one of the most important tourist destinations in the world because of the famous tourist attractions that attract many tourists.\n• Top landmarks in London \nBig Ben,Al Shard Tower Bridge,The Tate Madern Museum,Borough Market,The famous London Eye";
+        }
+        if(id=='Maldives') {
+            document.getElementById('txtareacountry').value="• Maldivea\nMaldives, in full Republic of Maldives, also called Maldive Islands, independent island country in the north-central Indian\n• Top landmarks in Maldives\nKani, The Finolhu Villas,";
+        }
+        if(id=='Berlin') {
+            document.getElementById('txtareacountry').value="• Berlin\nBerlin, Germany’s capital, dates to the 13th century. Reminders of the city's turbulent 20th-century history include its Holocaust memorial and the Berlin Wall's graffitied remains.\n • Top landmarks in Berlin\nThe Rebuilt Reichstag,The Brandenburg Gate,The Rebuilt Reichstag,Museum Island,The Berlin Wall Memorial";
+        }
+        if(id=='Humburg') {
+            document.getElementById('txtareacountry').value="• Humburg\nHamburg, a major port city in northern Germany, is connected to the North Sea by the Elbe River. It's crossed by hundreds of canals, and also contains large areas of parkland.\n• Top landmarks in Humburg\nMiniatur Wunderland,See a Concert at Elbphilharmonie,Visit the Hamburger Rathaus (City Hall) and Mönckebergstraße";
+        }
+        if(id=='Istanbul') {
+            document.getElementById('txtareacountry').value="• Istanbul\nstanbul is a major city in Turkey that straddles Europe and Asia across the Bosphorus Strait. Its Old City reflects cultural influences of the many empires that once ruled here\n• Top landmarks in Istanbul\nAdmire the Hagia Sophia (Aya Sofya) Mosque,Explore Topkapı Palace (Topkapı Sarayı),Visit the Blue Mosque (Sultan Ahmet Cami)";
+        }
+        if(id=='Oslo') {
+            document.getElementById('txtareacountry').value="• Oslo\nOslo, the capital of Norway, sits on the country’s southern coast at the head of the Oslofjord. It’s known for its green spaces and museums.\n• Top landmarks in Oslo\nAkershus Fortress,Fraam Museum,Munch,Vigeland Sculptue Park";
+        }
+        if(id=='Palermo') {
+            document.getElementById('txtareacountry').value="• Palermo\nPalermo is the capital of the Italian island of Sicily. The 12th-century Palermo Cathedral houses royal tombs, while the huge neoclassical Teatro Massimo is known for opera performances\n• Top landmarks in Palermo\nCattedrale (Cathedral),Palazzo dei Normanni (Norman Palace),Cappella Palatina,La Martorana";
+        }
+        if(id=='Paris') {
+            document.getElementById('txtareacountry').value="• Paris\nAlso known as the Latin Quarter, the 5th arrondissement is home to the Sorbonne university and student-filled cafes. It's also known for its bookshops, including the famed Shakespeare & Company.\n• Top landmarks in Paris\nEiffel Tower , Les Catacombes ,Moulin Rouge";
+        }
+        if(id=='Pula') {
+            document.getElementById('txtareacountry').value="• Pula\nPula, a seafront city on the tip of Croatia’s Istrian Peninsula, is known for its protected harbor, beach-lined coast and Roman ruins.\n• Top landmarks in Pula\nMuesum Olei Histiae,Kastel,Temple Of Augustus";
+        }
+        if(id=='Rome') {
+            document.getElementById('txtareacountry').value="• Rome\nRome is the capital city of Italy. It is also the capital of the Lazio region, the centre of the Metropolitan City of Rome, and a special comune named Comune di Roma Capitale.\n• Top landmarks in Rome\nColosseum ,Trevi Fountain of Rome,St. Peter’s Basilica";
+        }
+        if(id=='Sofia') {
+            document.getElementById('txtareacountry').value="• Sofia\nSofia is the capital of the Balkan nation of Bulgaria. It’s in the west of the country, below Vitosha Mountain. The city’s landmarks reflect more than 2,000 years of history, including Greek, Roman, Ottoman and Soviet occupation.\n• Top landmarks in Sofia\nSt.Alexander Nevski Cathedral ,Vitosha Mountain";
+        }
+        if(id=='Stockholm') {
+            document.getElementById('txtareacountry').value="• Stockhoml\nStockholm, the capital of Sweden, encompasses 14 islands and more than 50 bridges on an extensive Baltic Sea archipelago\n• Top landmarks in Stockholm\nRelive Sweden's Seafaring Past at the Vasa Museum ,Get Your Bearings Aboard a Fabulous Stockholm Boat Tour";
+        }
+        if(id=='Vienna') {
+            document.getElementById('txtareacountry').value="• Vienna\nVienna, Austria’s capital, lies in the country’s east on the Danube River. Its artistic and intellectual legacy was shaped by residents including Mozart, Beethoven and Sigmund Freud.\n• Top landmarks in Vienna\nHistoric Hofburg,Kunsthistorisches Museum and Maria-Theresien-Platz";
+        }
+
+
+
+
+
+
+
+    }
+</script>
+<!--start popupmenu description-->
+<div class="modal fade sign-in" id="descriptioncpuntries" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title " style="display: inline-block" id="exampleModalLongTitle">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="shape">
+                    <div class="form-outline mb-4 control-container">
+                        <label class="form-label" for="form2Example2"></label>
+                        <textarea   class="form-control" style="height: 150px;" readonly=true id = "txtareacountry"></textarea>
+                    </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--finish popupmenu description-->
 
 </body>
 </html>
